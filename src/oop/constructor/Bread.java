@@ -12,10 +12,17 @@ public class Bread {
     Bread() {}  // 기본 생성자!!!!!!!!! 셋팅 필요~
 
 
-    Bread(String bName , int bPrice, String bIng) {
-        breadName = bName;
-        price = bPrice;
-        ingredient = bIng;
+//    Bread(String bName , int bPrice, String bIng) {
+//        breadName = bName;
+//        price = bPrice;
+//        ingredient = bIng;
+//    }
+
+
+    public Bread(String breadName, int price, String ingredient) {
+        this.breadName = breadName;
+        this.price = price;
+        this.ingredient = ingredient;
     }
 
     void showCase() {

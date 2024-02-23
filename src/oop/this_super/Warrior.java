@@ -1,4 +1,4 @@
-package oop.inherit.good;
+package oop.this_super;
 
 /*
     # 자식 클래스, 하위 클래스 (Child, Sub class)
@@ -37,13 +37,11 @@ public class Warrior extends Player {
  // 단축키!! 알트+인서트-> 매서드 재정의
  */
 
+    void characterInfo(){
+        super.characterInfo();
+        System.out.println("# 분노: " + rage);
 
-
-    //    void characterInfo(){
-//        super.characterInfo();
-//        System.out.println("# 분노: " + rage);
-//
-//    }
+    }
 
 
 }
