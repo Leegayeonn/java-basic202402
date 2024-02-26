@@ -1,5 +1,8 @@
 package oop.obj_arr;
 
+import java.util.Scanner;
+import java.util.SortedMap;
+
 public class ScoreMain {
 
     public static void main(String[] args) {
@@ -21,6 +24,29 @@ public class ScoreMain {
           모두 null로 가득 차 있습니다. (null.scoreInfo() -> 에러)
           //에러, null이면 string 배열
          */
+
+
+        Scanner sc = new Scanner(System.in);
+        Score[] scores = new Score[100];
+
+        for (int i = 0; i < scores.length; i++) {
+            System.out.print("이름: ");
+            String name = sc.next();
+
+            System.out.print("국어점수: ");
+            int kor = sc.nextInt();
+
+            System.out.print("영어점수: ");
+            int eng = sc.nextInt();
+
+            System.out.print("수학점수: ");
+            int math = sc.nextInt();
+
+
+
+
+
+        }
 
 
     }
