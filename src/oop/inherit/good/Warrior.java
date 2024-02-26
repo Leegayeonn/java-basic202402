@@ -39,11 +39,11 @@ public class Warrior extends Player {
 
 
 
-    //    void characterInfo(){
-//        super.characterInfo();
-//        System.out.println("# 분노: " + rage);
-//
-//    }
+        void characterInfo(){
+        super.characterInfo();
+        System.out.println("# 분노: " + rage);
+
+    }
 
 
 }
