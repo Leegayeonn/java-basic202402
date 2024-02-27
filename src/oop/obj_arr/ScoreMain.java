@@ -1,7 +1,7 @@
 package oop.obj_arr;
 
 import java.util.Scanner;
-import java.util.SortedMap;
+
 
 public class ScoreMain {
 
@@ -28,25 +28,107 @@ public class ScoreMain {
 
         Scanner sc = new Scanner(System.in);
         Score[] scores = new Score[100];
+        int idx = 0;
 
-        for (int i = 0; i < scores.length; i++) {
+        //continue를 쓸거라면 while문 사용
+
+
+            System.out.println("*** 학생 점수 입력 프로그램 ***");
+            System.out.println("# 이름 입력창에 '그만'을 입력하시면 종료됩니다.");
+//        while(scores[scores.length-1] == null) {
+
+        while (idx != scores.length) {
+
+
             System.out.print("이름: ");
             String name = sc.next();
 
+            if(name.equals("그만")){
+                System.out.println("입력을 종료합니다.");
+                break;
+            }
+            Score s = new Score();
+
+
             System.out.print("국어점수: ");
             int kor = sc.nextInt();
-
+            if(!s.isValidateScore(kor)) {
+                continue;
+            }
             System.out.print("영어점수: ");
             int eng = sc.nextInt();
+            if(!s.isValidateScore(eng)) {
+                continue;
+            }
 
             System.out.print("수학점수: ");
             int math = sc.nextInt();
+            if(!s.isValidateScore(math)) {
+                continue;
+            }
 
 
+            s.setName(name);
+            s.setKor(kor);
+            s.setEng(eng);
+            s.setMath(math);
+            s.setTotalAndAvg();  //메서드를 만들어서 총점,평균값 출력
+
+            //메인에서 총점과 평균 구하기
+//            int total = kor + eng + math;
+//            double avg = total / 3.0;
+//            s.setTotal(total);
+//            s.setAvg(avg);
 
 
+            scores[idx] = s;
+            idx++;
 
+            System.out.println("*** 학생 정보 입력 완료! ***\n");
+        }// 입력 반복문 끝
+
+        for (Score score : scores) {
+            if(score == null) break;
+            score.scoreInfo();
+            System.out.println("========================");
         }
+
+        sc.close();
+
+
+
+
+
+//        for (int i = 0; i < scores.length; i++) {
+//
+//
+//            System.out.print("이름: ");
+//            String name = sc.next();
+//
+//            if(name.equals("그만")){
+//                System.out.println("입력을 종료합니다.");
+//                break;
+//            }
+//
+//            System.out.print("국어점수: ");
+//            int kor = sc.nextInt();
+//
+//            System.out.print("영어점수: ");
+//            int eng = sc.nextInt();
+//
+//            System.out.print("수학점수: ");
+//            int math = sc.nextInt();
+//
+//            scores[i] = new Score(name,kor, eng, math);
+//
+//        }
+//        for (Score s : scores) {
+//            if(s == null) {
+//                break;
+//            }
+//            s.scoreInfo();
+//        }
+
 
 
     }

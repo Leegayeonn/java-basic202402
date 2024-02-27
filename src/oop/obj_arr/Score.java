@@ -20,27 +20,83 @@ public class Score {
     private int total;
     private double avg;
 
-    public Score(String name, int kor, int eng, int math, int total, double avg) {
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public int getKor() {
+        return kor;
+    }
+
+    public void setKor(int kor) {
         this.kor = kor;
+    }
+
+    public int getEng() {
+        return eng;
+    }
+
+    public void setEng(int eng) {
         this.eng = eng;
+    }
+
+    public int getMath() {
+        return math;
+    }
+
+    public void setMath(int math) {
         this.math = math;
-        this.total = total;
-        this.avg = avg;
     }
 
-    void scoreInfo() {
-        System.out.printf("이름: %s\n국어점수: %d\n영어점수: %d\n수학점수: %d\n총점: %d\n평균: %f"
+    public int getTotal() {
+        return total;
+    }
+
+    /*
+    public void setTotal() {
+        // 이미 kor, eng, math 가 세팅이 완료되었다고 가정.
+        this.total = this.kor + this.eng + this.math;
+    }
+
+     */
+
+    public double getAvg() {
+        return avg;
+    }
+
+    /*
+    public void setAvg() {
+        this.avg = this.total / 3.0;
+    }
+     */
+
+    // 총점과 평균을 한번에 계산해서 셋팅하는 메서드(setter 모두)
+    public void setTotalAndAvg() {
+        this.total = this.kor + this.eng + this.math;
+        this.avg = this.total / 3.0;
+    }
+
+
+    public void scoreInfo() {
+
+        System.out.printf("이름: %s\n국어점수: %d\n영어점수: %d\n수학점수: %d\n총점: %d\n평균: %.2f\n"
                 ,this.name, this.kor, this.eng, this.math, this.total, this.avg);
+
+    }
+    // 점수 유효성 검증
+    public boolean isValidateScore(int score) {
+        if(score > 100 || score < 0) {
+            System.out.println("유효하지 않은 점수입니다.(0 ~ 100)");
+            return false;
+        }
+        return true;
     }
 
-    int total(int kor, int eng, int math) {
-        return kor+eng+math;
-    }
-
-    double avg(int kor, int eng, int math) {
-        return total()/3.0;
-    }
 
 
 
