@@ -2,6 +2,8 @@ package oop.obj_arr;
 
 import java.util.Scanner;
 
+import static oop.obj_arr.Score.isValidateScore;
+
 
 public class ScoreMain {
 
@@ -47,38 +49,43 @@ public class ScoreMain {
                 System.out.println("입력을 종료합니다.");
                 break;
             }
-            Score s = new Score();
+
 
 
             System.out.print("국어점수: ");
             int kor = sc.nextInt();
-            if(!s.isValidateScore(kor)) {
+            if(!isValidateScore(kor)) {
                 continue;
             }
             System.out.print("영어점수: ");
             int eng = sc.nextInt();
-            if(!s.isValidateScore(eng)) {
+            if(!isValidateScore(eng)) {
                 continue;
             }
 
             System.out.print("수학점수: ");
             int math = sc.nextInt();
-            if(!s.isValidateScore(math)) {
+            if(!isValidateScore(math)) {
                 continue;
             }
 
 
+
+
+            /*
             s.setName(name);
             s.setKor(kor);
             s.setEng(eng);
             s.setMath(math);
             s.setTotalAndAvg();  //메서드를 만들어서 총점,평균값 출력
-
+             */
             //메인에서 총점과 평균 구하기
 //            int total = kor + eng + math;
 //            double avg = total / 3.0;
 //            s.setTotal(total);
 //            s.setAvg(avg);
+
+            Score s = new Score(name, kor, eng, math);
 
 
             scores[idx] = s;
