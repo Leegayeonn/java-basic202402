@@ -1,4 +1,4 @@
-package basic.practice;
+package individualPractice.practice;
 
 public class Practice0221 {
 
