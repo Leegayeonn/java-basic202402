@@ -10,6 +10,9 @@ import java.io.Serializable;
 // 바이트 형태의 연속적인 데이터로 변환하는 기술.
 public class Snack implements Serializable {
 
+//    public enum Taste {
+//
+//    }
     private String snackName;
     private int year;  // 출시연도
     private int price;  // 가격
