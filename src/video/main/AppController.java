@@ -1,8 +1,7 @@
 package video.main;
 
 import video.common.AppService;
-import video.user.service.MovieService;
-import video.user.service.OrderService;
+import video.movie.service.MovieService;
 import video.user.service.UserService;
 
 public class AppController {
@@ -16,7 +15,7 @@ public class AppController {
                 service = new UserService();
                 break;
             case 2:
-                service = new OrderService();
+
                 break;
             case 3:
                 service = new MovieService();
