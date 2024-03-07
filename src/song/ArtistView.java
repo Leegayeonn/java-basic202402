@@ -10,7 +10,6 @@ import static util.Utility.makeLine;
 // 대부분의 기능을 static 으로 선언하여 객체생성 없이도 화면을 띄울수 있게 설계
 public class ArtistView {
 
-    
     // 정적초기화자를 불러서 바로 객체 생성
     private static ArtistRepository ar;
 
@@ -20,7 +19,7 @@ public class ArtistView {
     
 
 
-    // 메일 실행 기능
+    // 메인 실행 기능
     public static void start() {
 
         // 세이브 파일 로드

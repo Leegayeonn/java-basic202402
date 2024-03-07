@@ -9,7 +9,8 @@ import static util.Utility.*;
 
 public class ArtistRepository {
 
-    // key: 가수이름, value: Artist 객체
+    // key: 가수이름, value: Artist 객체 
+    // Map 객체 선언
     private static Map<String, Artist> artistList;
 
     static {
