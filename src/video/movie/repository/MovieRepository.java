@@ -128,6 +128,32 @@ public class MovieRepository {
     }
 
 
+    // 대여 가능한 리스트
+    public List<Movie> searchByRental(boolean possible) {
+        List<Movie> searchedList = new ArrayList<>();
+
+        if (possible) { // 대여 가능한 Movie 들만 거르기
+            for (int key : movieDatabase.keySet()) {
+                Movie movie = movieDatabase.get(key);
+                if (!movie.isRental()) {  // 대여가 가능(false)
+                    searchedList.add(movie);
+                }
+            }
+        } else { // 이미 대여중인 Movie 들만 거르기
+            for (int key : movieDatabase.keySet()) {
+                Movie movie = movieDatabase.get(key);
+                if (movie.isRental()) {  // true 가 대여중인것!
+                    searchedList.add(movie);
+                }
+            }
+        }
+        return searchedList;
+    }
+
+    // 번호에 맞는 영화 객체를 단 하나만 리턴하는 메서드
+    public Movie searchMovie(int movieNumber) {
+        return movieDatabase.get(movieNumber); //영화번호 자체가 key 값이기 때문에 그대로 넣음
+    }
 }
 
 

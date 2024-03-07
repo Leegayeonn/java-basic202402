@@ -41,4 +41,9 @@ public class UserRepository {
     public User deleteUser(int delUserNum) {  // key 값
         return userDatabase.remove(delUserNum);  // 사용자 정보를 출력해 주려고 리턴값주기!(보이드메서드를 User로 변경)
     }
+
+    // 회원 번호 찾기
+    public User findUserByNumber(int userNumber) {
+        return userDatabase.get(userNumber);
+    }
 }
