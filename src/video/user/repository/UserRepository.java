@@ -1,8 +1,12 @@
 package video.user.repository;
 
+import video.movie.domain.Movie;
+import video.order.domain.Order;
+import video.user.domain.Grade;
 import video.user.domain.User;
 
 import java.security.Key;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +18,21 @@ public class UserRepository {
     // static 전역 모두가 공유할수있도록
     //final (혹시모를 값변경을 막기위해) 해쉬맵의 주소가 변경되면 안되기 때문에 상수로 선언 해줌( 여기선 굳이 필요없긴함: private 하기때문)
     private static final Map<Integer, User> userDatabase = new HashMap<>();
+
+    static {
+        User test1 = new User("김테스트", "010-1234-5678", Grade.BRONZE);
+        User test2 = new User("유사버미", "010-8126-0802", Grade.BRONZE);
+        userDatabase.put(test1.getUserNumber(), test1);
+
+        Movie testMovie = new Movie("테스트무비", "테스트국가", 2024);
+
+        Order testOrder = new Order(test1, testMovie);
+        testOrder.setOrderDate(LocalDate.of(2024, 3, 1));
+        testOrder.setReturnDate(LocalDate.of(2024, 3, 4));
+        test1.addOder(testOrder);
+
+    }
+
 
     // 회원 추가 기능
     public void addUser(User user) {

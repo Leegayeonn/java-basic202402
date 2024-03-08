@@ -7,6 +7,12 @@ import java.util.Map;
 
 public class User {
 
+    public static final int SILVER_PRICE = 5000;
+    public static final int GOLD_PRICE = 7000;
+    public static final int VIP_PRICE = 10000;
+
+
+
     private static int sequence; // 회원 누적 순차번호
     private int userNumber;
     private String userName;
@@ -78,7 +84,20 @@ public class User {
 
     public void setTotalPaying(int totalPaying) {
         this.totalPaying += totalPaying;
+
+        // 회원이 대여를 진행할 때 이 setter 가 호출됨.
+        // 총 결제 금액에 따라 회원 등급을 조정.
+        if (this.totalPaying >= VIP_PRICE) {
+            this.grade = Grade.VIP;
+        } else if (this.totalPaying >= GOLD_PRICE) {
+            this.grade = Grade.GOLD;
+        } else if (this.totalPaying >= SILVER_PRICE) {
+            this.grade = Grade.SILVER;
+        }
     }
+
+
+
 
     @Override
     public String toString() {
