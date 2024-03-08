@@ -26,11 +26,16 @@ public class AppController {
                 System.exit(0); // 강제종료!
                 break;
             default:
-                System.out.println("# 메뉴를 다시 입력하세요!");
+                System.out.println("# 존재하지 않는 메뉴입니다.");
+
 
         }
 
-        service.start();
+        try {
+            service.start();
+        } catch (Exception e) {
+            System.out.println("# 메뉴를 다시 입력하세요!");
+        }
     }
 
 }

@@ -71,6 +71,8 @@ public class Lotto {
 
     public static void main(String[] args) {
 
+        System.out.println("예상 당첨 번호" + createLotto());
+
         // 당첨 번호를 고정하자.
         Set<Integer> win = createLotto();
 
